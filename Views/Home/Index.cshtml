@@ -1,8 +1,26 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Usuarios";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@model Usuarios;
+
+<h2>Agregar Usuario</h2>
+@if (TempData["SuccessMessage"]!=null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+
+<form asp-action="Submit" method="post">
+    <div>
+        <label>Nombre:</label>
+        <input asp-for="Nombre" class="form-control" />
+    </div>
+    <div>
+        <label>Correo:</label>
+        <input asp-for="Correo" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar nuevo usuario</button>
+</form>

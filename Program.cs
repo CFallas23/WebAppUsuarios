@@ -1,4 +1,9 @@
+using WebAppUsuarios.Models;
+
 var builder = WebApplication.CreateBuilder(args);
+
+//inyectamos la dependencia
+builder.Services.AddSingleton<AccesoDatos>(); 
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
